@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 3.9)
 project(libfml VERSION 1.0 DESCRIPTION "Frank's Math Library")
 
 add_library(fml SHARED
+  src/curve.cpp
   src/quat.cpp
+  src/surface.cpp
   src/vec2.cpp
   src/vec3.cpp)
 
