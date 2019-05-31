@@ -15,11 +15,15 @@ namespace fml {
         quat(vec3 vec);
         quat();
 
-        operator vec3();
+        operator vec3() const;
 
         quat conjugate() const;
 
+        /* returns <cos / 2, x * sin / 2, y * sin / 2, z * sin / 2> */
         static quat from_angleaxis(scalar angle, vec3 axis);
+
+        /* returns rotquat * this * rotquat.conj */
+        quat rotateby(const quat &rotquat) const;
     };
 
     quat operator*(const quat &, const quat &);

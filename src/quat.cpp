@@ -10,7 +10,7 @@ namespace fml {
     quat::quat(vec3 vec) : w(0), x(vec[0]), y(vec[1]), z(vec[2]) { }
     quat::quat() : w(0), x(0), y(0), z(0) { }
 
-    quat::operator vec3()
+    quat::operator vec3() const
     {
         return vec3(this->x, this->y, this->z);
     }
@@ -26,6 +26,11 @@ namespace fml {
     quat quat::conjugate() const
     {
         return quat(this->w, -this->x, -this->y, -this->z);
+    }
+
+    quat quat::rotateby(const quat &rotquat) const
+    {
+        return rotquat * (*this) * rotquat.conjugate();
     }
 
     quat quat::from_angleaxis(scalar angle, vec3 axis)

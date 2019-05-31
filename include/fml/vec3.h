@@ -5,6 +5,8 @@
 #include "fml.h"
 
 namespace fml {
+    class quat;
+
     class vec3 {
     public:
         scalar v[3];
@@ -27,7 +29,15 @@ namespace fml {
         scalar magnitudeSquared() const;
         vec3 normalize() const;
         scalar dot(const vec3 &other) const;
+
+        /* order is this x other. */
         vec3 cross(const vec3 &other) const;
+
+        /* rotate by a rotation quaternion */
+        vec3 rotateby(const quat &rotquat) const;
+
+        /* return an arbitrary unit vector normal to other */
+        static vec3 any_unit_normal(const vec3 &other);
     };
 
     vec3 operator*(scalar scale, const vec3 &v);

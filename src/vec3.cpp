@@ -102,4 +102,19 @@ namespace fml{
     {
         return v * scale;
     }
+
+    vec3 vec3::rotateby(const quat &rotquat) const
+    {
+        return rotquat * (*this) * rotquat.conjugate();
+    }
+
+#define EPS 1e-5
+#define ISZERO(a) ((fabs((a)) < EPS))
+
+    vec3 vec3::any_unit_normal(const vec3 &v)
+    {
+        if(ISZERO(v[0]) && ISZERO(v[1]))
+            return vec3(1, 0, 0);
+        return vec3(-v[1], v[0], 0).normalize();
+    }
 }
