@@ -71,6 +71,13 @@ namespace fml {
     scalar vec2::dot(const vec2 &other) const {
         return v[0] * other.v[0] + v[1] * other.v[1];
     }
+    vec2 vec2::rotateby(scalar angle) {
+        double s, c;
+        sincos(angle, &s, c);
+        return vec2(v[0] * c - v[1] * s,
+                    v[0] * s + v[1] * c);
+    }
+
     std::ostream &operator<<(std::ostream &output, const vec2 &v) {
         return output << v[0] << " " << v[1];
     }
