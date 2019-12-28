@@ -26,7 +26,7 @@ namespace fml {
         scalar magnitude() const;
         scalar magnitudeSquared() const;
         vec2 normalize() const;
-        vec2 vec2::rotateby(scalar angle);
+        vec2 rotateby(scalar angle);
         scalar dot(const vec2 &other) const;
     };
 
