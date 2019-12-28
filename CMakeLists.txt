@@ -8,10 +8,6 @@ add_library(fml SHARED
   src/vec2.cpp
   src/vec3.cpp)
 
-set_target_properties(fml PROPERTIES
-  VERSION ${PROJECT_VERSION}
-  SOVERSION 1)
-
 install(DIRECTORY "include/"
   DESTINATION "include"
   FILES_MATCHING
