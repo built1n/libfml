@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(libfml VERSION 1.0 DESCRIPTION "Frank's Math Library")
+project(libfml)
 
 add_library(fml SHARED
   src/curve.cpp
