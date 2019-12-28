@@ -73,7 +73,7 @@ namespace fml {
     }
     vec2 vec2::rotateby(scalar angle) {
         double s, c;
-        sincos(angle, &s, c);
+        sincos(angle, &s, &c);
         return vec2(v[0] * c - v[1] * s,
                     v[0] * s + v[1] * c);
     }
